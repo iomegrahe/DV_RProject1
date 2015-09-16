@@ -10,6 +10,14 @@ output: html_document
 
 ![](./Rplot1.png)
 
+**Steps:**
+
+1. Extract all data including null values from titanic table in SQL by using the SQL statement, “Select * from Titanic” extracts all the values from the titanic table including null values
+2. State x and y values as continuous
+3. Give the graph a title, “Titanic”
+4. Label x and y axis with “age” and “fare” respectively
+5. Map data to the graph
+
 **Code:**
 ```{r, eval=FALSE}
 require("jsonlite")
@@ -42,6 +50,14 @@ ggplot() +
 
 ![](./Rplot2.png)
 
+**Steps:**
+
+1. Extract all data excluding null values from titanic table in SQL by using the SQL statement, “Select * from Titanic where sex is not null” extracts all the values from the titanic table excluding null values
+2. State x and y values as continuous
+3. Give the graph a title, “Titanic”
+4. Label x and y axis with “age” and “fare” respectively
+5. Map data to the graph
+
 **Code:**
 ```{r, eval=FALSE}
 df <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/native/?query="select * from titanic where sex is not null"'),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDBF15DV.usuniversi01134.oraclecloud.internal', USER='cs329e_jso464', PASS='orcl_jso464', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE), ))
@@ -67,6 +83,13 @@ ggplot() +
 
 ![](./Rplot3.png)
 
+**Steps:**
+
+1. Determine x as a discrete value and y as continuous
+2. Give the graph a title, “Titanic”
+3. Change label of the x and y axis to “Survived” and “Fare” respectively
+4. Map data to graph, with x axis as “sex”, y axis as “fare” and the color as “survived”
+
 **Code:**
 ```{r, eval=FALSE}
 ggplot() + 
@@ -89,6 +112,14 @@ ggplot() +
 * We found that more survivors were in passenger class 1 than in the other two classes.
 
 ![](./Rplot4.png)
+
+**Steps:**
+
+1. Determine x as a discrete value and y as continuous
+2. Divide the plot into six using facet_grid and which each row representing a passenger class and column representing whether passenger survived or not
+3. Give the graph a title, “Titanic”
+4. Label x and y axis with “survived” and “fare” respectively
+5. Map data to graph, with x axis as “sex”, y axis as “fare” and the color as “survived”
 
 **Code:**
 ```{r, eval=FALSE}
@@ -113,6 +144,15 @@ ggplot() +
 * There were very few passengers under the age of 11 in passenger class 1, all passengers under the age of 11 in class 2 survived, and about half of the passengers under the age of 11 in class 3 survived. 
 
 ![](./Rplot5.png)
+
+**Steps:**
+
+1. Extract data from titanic table in SQL by using the SQL statement, “Select * from Titanic where sex is not null and age <= 10” extracts all the values from the titanic table excluding null values and passengers who are of ten years of age and younger
+2. Determine x as a discrete value and y as continuous
+3. Divide the plot into six using facet_grid and which each row representing a passenger class and column representing whether passenger survived or not
+4. Give the graph a title, “Titanic”
+5. Label x and y axis with “sex” and “fare” respectively
+6. Map data to graph, with x axis as “sex”, y axis as “fare” 
 
 **Code:**
 ```{r, eval=FALSE}
@@ -139,6 +179,14 @@ ggplot() +
 * The majority of males with families on board did not survive, while most females with families on board survived. This was regardless of age. 
 
 ![](./Rplot6.png)
+
+**Steps:**
+
+1. Extract data from titanic table in SQL by using the SQL statement, “Select * from Titanic where SIBSP = 0 and PARCH = 0” extracts all the values from the titanic table for passengers who were not travelling alone
+2. Determine x as a discrete value and y as continuous
+3. Give the graph a title, “Titanic”
+4. Label x and y axis with “sex” and “age” respectively
+5. Map data to graph, with x axis as “sex”, y axis as “fare” and color as “survived”
 
 **Code:**
 ```{r, eval=FALSE}
